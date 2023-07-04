@@ -1,3 +1,4 @@
+import { FluentProvider, teamsDarkTheme } from '@fluentui/react-components'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
