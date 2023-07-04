@@ -10,6 +10,11 @@ export interface SuggestionItem {
   searchResultItem?: SearchResultItem;
 }
 
+export interface GoogleSearchResult {
+  kind: string;
+  items: SearchResultItem[];
+}
+
 export interface SearchResultItem {
   kind: string;
   title: string;
