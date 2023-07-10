@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@fluentui/react-components": "^9.23.1",
+    "@supabase/auth-helpers-nextjs": "^0.7.2",
+    "@supabase/supabase-js": "^2.26.0",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export interface ButtonProps {
   title: string;
+  icon?: React.ReactElement | any;
   callback: () => void;
 }
 
@@ -16,7 +17,10 @@ export default function Button(props: ButtonProps) {
 
   return (
     <div className='px-10 pt-12'>
-      <input type="submit" onClick={onSubmit} value={title}  className="rounded bg-red-600 w-full h-16 cursor-pointer hover:bg-red-400 transition-all duration-700 ease-in"/>
+      <button type="submit" onClick={onSubmit} className="text-white rounded bg-[#1c9fe7] w-full h-16 cursor-pointer hover:bg-#9adaf6 transition-all duration-700 ease-in">
+        {props.icon}
+        {title}
+      </button>
     </div>
   )
 }
