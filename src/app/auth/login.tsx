@@ -37,10 +37,25 @@ export default function Login() {
   }
 
   return (
-    <div className="w-full">
-      <CortanaIcon className='w-24 ml-72 mt-24 ' />
-      <Button title="Sign in with Microsoft" callback={handleSignIn} icon={MicrosoftIcon} />
-      <Button title="Sign Out" callback={handleSignOut} />
+    <div className="w-1/2 flex flex-col justify-center align-center ml-64">
+      <div className="ml-72">
+        <CortanaIcon className='w-24 ml-72 mt-24 ' />
+        <Image
+          src='/working-image.png'
+          alt='Working People'
+          className='ml-16'
+          width={500}
+          height={500}
+        />
+        <div className='pl-44'>
+          <Button title="Sign in with Microsoft" callback={handleSignIn} icon={MicrosoftIcon} />
+          {/* We will show this only when auth works */}
+          {/* <Button title="Sign Out" callback={handleSignOut} /> */}
+
+          <p className='mt-4 ml-8'>For the best experience, use your</p>
+          <p className='ml-16'> work or school account</p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import 'regenerator-runtime/runtime'
 import { useSpeechRecognition } from "react-speech-recognition"
 import Button from '@/components/buttons/Button'
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [ifStarted, setIfStarted] = useState<boolean>(false)
@@ -28,9 +29,9 @@ export default function Home() {
           Use Your voice to control your PC - Microsoft style!
           Simply tap on the button below to start the conversation
         </div>
-        <div className='pt-12'>
+        <Link className='pt-12' href='/auth'>
           <Button title='Lets Go!' callback={startConversation} />
-        </div>
+        </Link>
       </div>
     </div>
   )
