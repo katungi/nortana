@@ -7,7 +7,7 @@ A low functionality clone of Cortana, I think. I don't know, I've never used Cor
 
 ## Progress
 
-<img src="/public/screenshot.png" width="500" height="500" style= "margin-left: 270px"/>
+<img src="/public/screenshot.png" width="600" height="900" style= "margin-left: 270px"/>
 <br>
 - [x] Basic Microsoft Authentication (Login)
 - [x] Basic Voice Recognition
