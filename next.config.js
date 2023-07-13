@@ -2,11 +2,10 @@
 // const middleware = require('./src/middleware.ts');
 
 const nextConfig = {
-  // async redirects() {
-  //   return [
-  //     { source: '/:path*', destination: '/:path*', middleware },
-  //   ];
-  // }
+  output: 'export',
+  images: {
+    unoptimized: true
+  },
 }
 
 

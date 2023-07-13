@@ -28,6 +28,7 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1.4.0",
     "@types/react-speech-recognition": "^3.9.2",
     "@types/regenerator-runtime": "^0.13.1"
   },
