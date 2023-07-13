@@ -6,8 +6,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import useUserStore from '@/core/store/UserStore';
 import Login from './auth/login';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { Database } from '@/core/types/database.types';
 
-export default function Home() {
+export default async function Home() {
   const [ifStarted, setIfStarted] = useState<boolean>(false)
 
   async function startConversation() {
@@ -20,11 +22,13 @@ export default function Home() {
 
   // shitty workaround for redirects for now (don't judge me)
 
-  const { token } = useUserStore()
+  const supabase = createClientComponentClient<Database>({})
+  const {data, error} = await (await supabase.auth.getSession())
+  console.log(data.session)
 
   return (
     <div className='w-full'>
-      {token ? (
+      {!data.session === null ? (
         <>
           <div className='w-3/4 max-w-screen-md pt-4 m-auto'>
             <div className='pt-12 font-extrabold text-8xl pb-8'>
@@ -45,6 +49,7 @@ export default function Home() {
       ) :
         <Login />
       }
+      <p>{error?.message}</p>
     </div>
   )
 }

@@ -14,8 +14,10 @@ import { MicrosoftIcon } from "../../../public/Icons"
 
 export default function Login() {
   const router = useRouter()
+  const [loading, setLoading] = useState<boolean>(false)
 
   const handleSignIn = async () => {
+    setLoading(true)
     const supabase = createClientComponentClient<Database>({})
     const res = await supabase.auth.signInWithOAuth({
       provider: 'azure',
@@ -24,9 +26,8 @@ export default function Login() {
         redirectTo: `${location.origin}/auth/callback`
       },
     })
-    console.log("AUTH RES:::", res)
-    await fetch('/api/auth/callback')
-    revalidatePath('/')
+    setLoading(false)
+    revalidatePath('/chat')
   }
 
   const handleSignOut = async () => {
@@ -42,10 +43,7 @@ export default function Login() {
         <p className='mt-16 ml-40 text-gray-300 text-xl font-bold'>Sign in to Cortana</p>
         <Image src='/working-image.png' alt='Working People' className='ml-16' width={400} height={400} />
         <div className='pl-12 ml-16'>
-          <Button title="Sign in with Microsoft" callback={handleSignIn} icon={MicrosoftIcon} />
-          {/* We will show this only when auth works */}
-          {/* <Button title="Sign Out" callback={handleSignOut} /> */}
-
+          <Button title="Sign in with Microsoft" callback={handleSignIn} icon={MicrosoftIcon} loading={loading} />
           <p className='mt-4 ml-8 text-gray-300'>For the best experience, use your</p>
           <p className='ml-16 text-gray-300'> work or school account</p>
         </div>
