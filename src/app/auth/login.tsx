@@ -36,17 +36,11 @@ export default function Login() {
   }
 
   return (
-    <div className="w-full flex flex-col justify-center align-center ">
+    <div className="w-full flex flex-col justify-center align-center ml-12">
       <div className="w-full">
         <CortanaIcon className='w-20 ml-52 mt-12' />
         <p className='mt-16 ml-40 text-gray-300 text-xl font-bold'>Sign in to Cortana</p>
-        <Image
-          src='/working-image.png'
-          alt='Working People'
-          className='ml-16'
-          width={400}
-          height={400}
-        />
+        <Image src='/working-image.png' alt='Working People' className='ml-16' width={400} height={400} />
         <div className='pl-12 ml-16'>
           <Button title="Sign in with Microsoft" callback={handleSignIn} icon={MicrosoftIcon} />
           {/* We will show this only when auth works */}
