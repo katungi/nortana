@@ -12,7 +12,7 @@ export interface ButtonProps {
 }
 
 export default function Button(props: ButtonProps) {
-  const [title, setTitle] = useState<string>(props.title)
+  // const [title, setTitle] = useState<string>(props.title)
   const onSubmit = (e: any) => {
     e.preventDefault();
     props.callback();
@@ -23,7 +23,7 @@ export default function Button(props: ButtonProps) {
       <button type="submit" onClick={onSubmit} className={`text-white rounded bg-[#1c9fe7] w-56 h-16 cursor-pointer hover:bg-#9adaf6 transition-all duration-700 ease-in`}>
         {props.icon}
         {props.loading && <RoundSpinner color='white' size={20} />}
-        {title}
+        {!props.loading && props.title}
       </button>
     </div>
   )

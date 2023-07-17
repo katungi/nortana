@@ -13,8 +13,7 @@ import { MicrosoftIcon } from "../../../public/Icons"
 // import { cookies } from "next/headers"
 
 export default function Login() {
-  const router = useRouter()
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState(false)
 
   const handleSignIn = async () => {
     setLoading(true)
@@ -26,14 +25,17 @@ export default function Login() {
         redirectTo: `${location.origin}/auth/callback`
       },
     })
+    console.log('res::', res)
     setLoading(false)
-    revalidatePath('/chat')
+    //router.push('/chat')
+    // revalidatePath('/')
   }
 
   const handleSignOut = async () => {
     const supabase = createClientComponentClient<Database>({})
     await supabase.auth.signOut()
-    revalidatePath('/')
+    // router.push('/chat')
+    // revalidatePath('/')
   }
 
   return (
@@ -43,7 +45,7 @@ export default function Login() {
         <p className='mt-16 ml-40 text-gray-300 text-xl font-bold'>Sign in to Cortana</p>
         <Image src='/working-image.png' alt='Working People' className='ml-16' width={400} height={400} />
         <div className='pl-12 ml-16'>
-          <Button title="Sign in with Microsoft" callback={handleSignIn} icon={MicrosoftIcon} loading={loading} />
+          <Button title="Sign in with Microsoft" callback={handleSignIn} loading={loading} />
           <p className='mt-4 ml-8 text-gray-300'>For the best experience, use your</p>
           <p className='ml-16 text-gray-300'> work or school account</p>
         </div>

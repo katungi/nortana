@@ -21,10 +21,9 @@ export default async function Home() {
   async function sendConversationToGPT() { }
 
   // shitty workaround for redirects for now (don't judge me)
-
   const supabase = createClientComponentClient<Database>({})
-  const {data, error} = await (await supabase.auth.getSession())
-  console.log(data.session)
+  const {data, error} = await supabase.auth.getSession()
+  console.log(data?.session)
 
   return (
     <div className='w-full'>
@@ -41,9 +40,9 @@ export default async function Home() {
               Use Your voice to control your PC - Microsoft style!
               Simply tap on the button below to start the conversation
             </div>
-            <Link className='pt-12' href='/auth'>
+            {/* <Link className='pt-12' href='/auth'>
               <Button title='Lets Go!' callback={startConversation} />
-            </Link>
+            </Link> */}
           </div>
         </>
       ) :
