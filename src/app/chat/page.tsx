@@ -11,10 +11,9 @@ export default async function ChatPage() {
   const { data, error } = await supabase.auth.getSession()
   console.log("DATATA::", data?.session?.user)
 
-  const user = useUserStore().name
-  console.log("USER::", user)
+  // const user = useUserStore().name
+  // console.log("USER::", user)
   return (
-
     <>
       <div className='w-full'>
         <p>Chat Page</p>

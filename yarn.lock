@@ -1036,7 +1036,7 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@babel/runtime@^7.8.4":
+"@babel/runtime@^7.20.13", "@babel/runtime@^7.8.4":
   version "7.22.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.6.tgz#57d64b9ae3cff1d67eb067ae117dac087f5bd438"
   integrity sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==
@@ -2337,10 +2337,22 @@ chokidar@^3.4.0, chokidar@^3.5.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
+class-variance-authority@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/class-variance-authority/-/class-variance-authority-0.7.0.tgz#1c3134d634d80271b1837452b06d821915954522"
+  integrity sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==
+  dependencies:
+    clsx "2.0.0"
+
 client-only@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
+
+clsx@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.0.0.tgz#12658f3fd98fafe62075595a5c30e43d18f3d00b"
+  integrity sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -3001,6 +3013,15 @@ react-speech-recognition@^3.10.0:
   resolved "https://registry.yarnpkg.com/react-speech-recognition/-/react-speech-recognition-3.10.0.tgz#7aa43bb28d78b92671864dabba3a70489ccad27b"
   integrity sha512-EVSr4Ik8l9urwdPiK2r0+ADrLyDDrjB0qBRdUWO+w2MfwEBrj6NuRmy1GD3x7BU/V6/hab0pl8Lupen0zwlJyw==
 
+react-textarea-autosize@^8.5.2:
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-8.5.2.tgz#6421df2b5b50b9ca8c5e96fd31be688ea7fa2f9d"
+  integrity sha512-uOkyjkEl0ByEK21eCJMHDGBAAd/BoFQBawYK5XItjAmCTeSbjxghd8qnt7nzsLYzidjnoObu6M26xts0YGKsGg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    use-composed-ref "^1.3.0"
+    use-latest "^1.2.1"
+
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
@@ -3333,10 +3354,27 @@ update-browserslist-db@^1.0.11:
     escalade "^3.1.1"
     picocolors "^1.0.0"
 
+use-composed-ref@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/use-composed-ref/-/use-composed-ref-1.3.0.tgz#3d8104db34b7b264030a9d916c5e94fbe280dbda"
+  integrity sha512-GLMG0Jc/jiKov/3Ulid1wbv3r54K9HlMW29IWcDFPEqFkSO2nS0MuefWgMJpeHQ9YJeXDL3ZUF+P3jdXlZX/cQ==
+
 use-disposable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/use-disposable/-/use-disposable-1.0.1.tgz#12452ec6d41f88bf84d41792def63c9e9921fc43"
   integrity sha512-5Sle1XEmK3lw3xyGqeIY7UKkiUgF+TxwUty7fTsqM5D5AxfQfo2ft+LY9xKCA+W5YbaBFbOkWfQsZY/y5JhInA==
+
+use-isomorphic-layout-effect@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.2.tgz#497cefb13d863d687b08477d9e5a164ad8c1a6fb"
+  integrity sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==
+
+use-latest@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/use-latest/-/use-latest-1.2.1.tgz#d13dfb4b08c28e3e33991546a2cee53e14038cf2"
+  integrity sha512-xA+AVm/Wlg3e2P/JiItTziwS7FK92LWrDB0p+hgXloIMuVCeJJ8v6f0eeHyPZaJrM+usM1FkFfbNCrJGs8A/zw==
+  dependencies:
+    use-isomorphic-layout-effect "^1.1.1"
 
 use-sync-external-store@1.2.0:
   version "1.2.0"
