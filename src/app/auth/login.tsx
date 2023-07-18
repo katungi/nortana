@@ -7,9 +7,10 @@ import { createServerActionClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 
 import type { Database } from "@/core/types/database.types"
-import Button from "@/components/buttons/Button"
 import CortanaIcon from "../../../public/Icons/cortanaIcon"
 import { MicrosoftIcon } from "../../../public/Icons"
+import Button from "@/components/buttons/Button"
+import { cn } from "@/lib/utils"
 // import { cookies } from "next/headers"
 
 export default function Login() {

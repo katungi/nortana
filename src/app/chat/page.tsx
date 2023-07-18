@@ -1,5 +1,6 @@
 'use client'
 
+import ChatPanel from "@/components/chat/chat"
 import useSharedStore from "@/core/store/SharedStore"
 import useUserStore from "@/core/store/UserStore"
 import { Database } from "@/core/types/database.types"
@@ -16,7 +17,7 @@ export default async function ChatPage() {
   return (
     <>
       <div className='w-full'>
-        <p>Chat Page</p>
+        <ChatPanel />
       </div>
     </>
   )
