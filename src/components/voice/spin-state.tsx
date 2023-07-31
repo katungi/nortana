@@ -101,15 +101,24 @@ function Cortana({ listeningMode }: { listeningMode: string }) {
 
   return (
     <div>
-      <div id="mode-set-menu" className=''>
-        <select
-          onChange={(e) => setMode(e.target.value)}
-        >
-          <option value='Idle'>Default (Idle)</option>
-          <option value='Listening'>Listening</option>
-          <option value='Thinking'>Thinking</option>
-          <option value='Inactive'>Inactive</option>
-        </select>
+
+        /* <select
+        onChange={(e) => setMode(e.target.value)}
+      >
+        <option value='Idle'>Default (Idle)</option>
+        <option value='Listening'>Listening</option>
+        <option value='Thinking'>Thinking</option>
+        <option value='Inactive'>Inactive</option>
+      </select> */
+      <div id="mode-set-menu">
+        <label onClick={() => setMode('idle')}>Default (Idle)</label>
+        <br />
+        <label onClick={() => setMode('listen')}>Listening</label>
+        <br />
+        <label onClick={() => setMode('think')}>Thinking</label>
+        <br />
+        <label onClick={() => setMode('inactive')}>Inactive</label>
+        <br />
       </div>
       <div className='m-60'>
         <CortanaDiv id="cortana" mode={mode} />
