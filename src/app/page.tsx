@@ -1,5 +1,4 @@
 'use client';
-import 'regenerator-runtime/runtime'
 import { useSpeechRecognition } from "react-speech-recognition"
 import Button from '@/components/buttons/Button'
 import { useState } from 'react';
@@ -22,7 +21,7 @@ export default async function Home() {
 
   // shitty workaround for redirects for now (don't judge me)
   const supabase = createClientComponentClient<Database>({})
-  const {data, error} = await supabase.auth.getSession()
+  const { data, error } = await supabase.auth.getSession()
   console.log(data?.session)
 
   return (
