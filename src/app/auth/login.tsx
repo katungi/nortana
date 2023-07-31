@@ -10,11 +10,12 @@ import type { Database } from "@/core/types/database.types"
 import CortanaIcon from "../../../public/Icons/cortanaIcon"
 import { MicrosoftIcon } from "../../../public/Icons"
 import Button from "@/components/buttons/Button"
+// import Button from '@/components/ui/button'
 import { cn } from "@/lib/utils"
 // import { cookies } from "next/headers"
 
 export default function Login() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState<boolean>(false)
 
   const handleSignIn = async () => {
     setLoading(true)
@@ -28,15 +29,11 @@ export default function Login() {
     })
     console.log('res::', res)
     setLoading(false)
-    //router.push('/chat')
-    // revalidatePath('/')
   }
 
   const handleSignOut = async () => {
     const supabase = createClientComponentClient<Database>({})
     await supabase.auth.signOut()
-    // router.push('/chat')
-    // revalidatePath('/')
   }
 
   return (

@@ -44,7 +44,7 @@ export function PromptForm({
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="/"
+              href="/voice"
               className={cn(
                 buttonVariants({ size: 'sm', variant: 'outline' }),
                 'absolute left-0 top-4 h-8 w-8 rounded-full bg-background p-0 sm:left-4'

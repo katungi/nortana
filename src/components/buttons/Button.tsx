@@ -18,6 +18,8 @@ export default function Button(props: ButtonProps) {
     props.callback();
   }
 
+  console.log("props::", props);
+
   return (
     <div className='px-10 pt-12'>
       <button type="submit" onClick={onSubmit} className={`text-white rounded bg-[#1c9fe7] w-56 h-16 cursor-pointer hover:bg-#9adaf6 transition-all duration-700 ease-in`}>
