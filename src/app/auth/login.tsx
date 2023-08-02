@@ -28,7 +28,6 @@ export default function Login() {
       },
     })
     console.log('res::', res)
-    setLoading(false)
   }
 
   const handleSignOut = async () => {
@@ -43,7 +42,7 @@ export default function Login() {
         <p className='mt-16 ml-40 text-gray-300 text-xl font-bold'>Sign in to Cortana</p>
         <Image src='/working-image.png' alt='Working People' className='ml-16' width={400} height={400} />
         <div className='pl-12 ml-16'>
-          <Button title="Sign in with Microsoft" callback={handleSignIn} loading={loading} />
+          <Button title="Sign in with Microsoft" callback={handleSignIn} loading={loading}  />
           <p className='mt-4 ml-8 text-gray-300'>For the best experience, use your</p>
           <p className='ml-16 text-gray-300'> work or school account</p>
         </div>
