@@ -1,5 +1,5 @@
 'use client'
-import { Roller } from 'react-awesome-spinners'
+import { Ellipsis } from 'react-spinners-css'
 
 export interface LoaderProps {
   color?: string;
@@ -8,6 +8,6 @@ export interface LoaderProps {
 
 export default function RoundSpinner(props: LoaderProps) {
   return <div>
-    <Roller color={props.color} size={props.size} />
+    <Ellipsis color={props.color} size={props.size} />
   </div>
 }

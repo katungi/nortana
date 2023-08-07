@@ -12,6 +12,12 @@
   },
   "tauri": {
     "allowlist": {
+      "dialog": {
+        "all": true
+      },
+      "notification": {
+        "all": true
+      },
       "all": false
     },
     "bundle": {
@@ -29,7 +35,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.dankat.io",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

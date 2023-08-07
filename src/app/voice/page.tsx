@@ -3,33 +3,40 @@ import 'regenerator-runtime';
 import SpinCortana from "@/components/voice/spin-state";
 import { useEffect, useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { sendNotification } from '@tauri-apps/api/notification';
+import useSpeechRecognitionHook from '@/lib/hooks/use-speech-recognition'
 
 export default async function VoiceCommand() {
   const [mode, setMode] = useState('Idle');
   const [renderText, setRenderText] = useState('...')
+  const [currentMic, setCurrentMicrophone] = useState('')
+  // const { text, startListening, stopListening, isListening } = useSpeechRecognitionHook()
 
-  const {
-    transcript,
-    listening,
-    isMicrophoneAvailable
-  } = useSpeechRecognition()
+  const { transcript, listening, isMicrophoneAvailable } = useSpeechRecognition()
 
+  async function getMicrophones() {
+    let perms = await navigator.mediaDevices.getUserMedia({ audio: true })
+    let devices = await navigator.mediaDevices.enumerateDevices()
+    sendNotification({
+      title: 'Microphone',
+      body: `Microphone is availabl ${devices[0].label}`
+    })
+  }
   useEffect(() => {
-    if (isMicrophoneAvailable) {
-      console.log("Microphone is available")
-    }
-    if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-      console.log("Browser does not support speech recognition")
-    } else {
+    if (window !== undefined) {
+      // getMicrophones()
       startListening()
-      console.log("Browser supports speech recognition")
+      // startListening()
     }
   }, [])
 
-  useEffect(() => {
-    setRenderText(transcript)
-    console.log("Transcript::", transcript)
-  }, [transcript])
+  // useEffect(() => {
+  //   if (text !== '') {
+  //     setRenderText(text)
+  //     console.log("Transcript::", text)
+  //     sendNotification(text)
+  //   }
+  // }, [text])
 
   function startListening() {
     SpeechRecognition.startListening({ continuous: true, language: 'en-US' })
@@ -41,6 +48,7 @@ export default async function VoiceCommand() {
     SpeechRecognition.stopListening()
     setMode('idle')
   }
+
   return (
     <div className='w-full'>
       <div className='flex flex-col'>
@@ -49,10 +57,10 @@ export default async function VoiceCommand() {
           <p>Say "Hey Cortana" to get started</p>
         </div>
       </div>
-      <div>
-        <div className={"px-5 pt-8 text-md max-w-24 text-white"}>
+      <div className=''>
+        <p className={"text-md text-white"}>
           {transcript}
-        </div>
+        </p>
         {listening && <button onClick={stopListening}>Stop</button>}
       </div>
     </div>

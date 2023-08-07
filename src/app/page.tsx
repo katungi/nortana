@@ -1,15 +1,36 @@
 'use client';
 import { useSpeechRecognition } from "react-speech-recognition"
 import Button from '@/components/buttons/Button'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import useUserStore from '@/core/store/UserStore';
 import Login from './auth/login';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/core/types/database.types';
+import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/api/notification';
+import {ask} from '@tauri-apps/api/dialog'
 
 export default async function Home() {
   const [ifStarted, setIfStarted] = useState<boolean>(false)
+
+
+  async function checkPermission() {
+    let permissionGranted = await isPermissionGranted()
+    if (!permissionGranted) {
+      const permission = await requestPermission();
+      permissionGranted = permission === 'granted';
+    } else {
+      sendNotification({
+        title: 'Welcome to Cortana',
+        body: 'This is a notification from Cortana',
+      })
+    }
+  }
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      checkPermission()
+    }
+  }, [])
 
   async function startConversation() {
     if (!ifStarted) {

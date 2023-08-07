@@ -31,8 +31,8 @@ export default function Button(props: ButtonProps) {
       <button type="submit" onClick={onSubmit} className={`text-white rounded bg-[#1c9fe7] w-56 h-20 cursor-pointer hover:bg-#9adaf6 transition-all duration-700 ease-in`}>
         {props.icon}
         {isLoading &&
-          <div className="mb-44 mr-8">
-            <RoundSpinner color="#fff" size={2} />
+          <div className="">
+            <RoundSpinner color="#fff" size={64} />
           </div>
         }
         {!isLoading && props.title}
