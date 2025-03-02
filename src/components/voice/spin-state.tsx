@@ -17,22 +17,22 @@ const innerRingSize = 7 * cortanaScale;
 const cortanaListen = keyframes`
   0% {
     border-width: ${innerRingSize}px;
-    box-shadow: 0 0 0 ${outerRingSize * 3}px #0D436E;
+    box-shadow: 0 0 0 ${outerRingSize * 3}px #6E0D0D;
   }
   100% {
     border-width: ${innerRingSize * 1.25}px;
-    box-shadow: 0 0 0 ${outerRingSize * 2.75}px #0D436E;
+    box-shadow: 0 0 0 ${outerRingSize * 2.75}px #6E0D0D;
   }
 `;
 
 const cortanaBreath = keyframes`
   0% {
     border-width: ${innerRingSize}px;
-    box-shadow: 0 0 0 ${outerRingSize * 2.5}px #0D436E;
+    box-shadow: 0 0 0 ${outerRingSize * 2.5}px #6E0D0D;
   }
   100% {
     border-width: ${innerRingSize * 3}px;
-    box-shadow: 0 0 0 ${outerRingSize}px #0D436E;
+    box-shadow: 0 0 0 ${outerRingSize}px #6E0D0D;
   }
 `;
 
@@ -47,7 +47,7 @@ const cortanaThinkO = keyframes`
 `;
 
 const CortanaDiv = styled.div<CortanaProps>`
-  color: #0d436e;
+  color: #6E0D0D;
   box-shadow: 0 0 0 ${outerRingSize}px;
   display: block;
   margin: 50;
@@ -56,7 +56,7 @@ const CortanaDiv = styled.div<CortanaProps>`
   height: ${outerStartSize}px;
   border-radius: 100%;
   position: absolute;
-  border: ${innerRingSize}px solid #0078d7;
+  border: ${innerRingSize}px solid #D70000;
   transition: border-width 1s, box-shadow 1s;
   transform-style: preserve-3d;
   animation: ${cortanaBreath} 1s infinite ease-in-out alternate;
@@ -64,7 +64,7 @@ const CortanaDiv = styled.div<CortanaProps>`
   ${(props) =>
     props.mode === 'listen' &&
     css`
-      background-color: #0078d7;
+      background-color: #D70000;
       animation: ${cortanaListen} 0.5s infinite ease-in-out alternate;
     `}
 
@@ -74,7 +74,7 @@ const CortanaDiv = styled.div<CortanaProps>`
       width: ${outerStartSize * 2}px;
       height: ${outerStartSize * 2}px;
       box-shadow: 0 0 0 ${outerRingSize * 0.75}px;
-      color: #0078d7;
+      color: #D70000;
       border-color: transparent;
       animation: ${cortanaThink} 0.65s infinite ease-in-out alternate;
 
@@ -86,7 +86,7 @@ const CortanaDiv = styled.div<CortanaProps>`
         margin-left: -${innerRingSize}px;
         margin-top: -${innerRingSize}px;
         border-radius: 100%;
-        border: ${innerRingSize}px solid #0d436e;
+        border: ${innerRingSize}px solid #6E0D0D;
         animation: ${cortanaThinkO} 0.6s infinite linear alternate;
       }
     `}

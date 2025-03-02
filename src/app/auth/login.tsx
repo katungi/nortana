@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils"
 
 export default function Login() {
   const [loading, setLoading] = useState<boolean>(false)
+  const router = useRouter()
 
   const handleSignIn = async () => {
     setLoading(true)
@@ -36,6 +37,10 @@ export default function Login() {
     await supabase.auth.signOut()
   }
 
+  const skipSignIn = async () => {
+    router.push('/voice')
+  }
+
   return (
     <div className="w-full flex flex-col justify-center align-center ml-12">
       <div className="w-full">
@@ -43,7 +48,7 @@ export default function Login() {
         <p className='mt-16 ml-40 text-gray-300 text-xl font-bold'>Sign in to Cortana</p>
         <Image src='/working-image.png' alt='Working People' className='ml-16' width={400} height={400} />
         <div className='pl-12 ml-16'>
-          <Button title="Sign in with Microsoft" callback={handleSignIn} loading={loading}  />
+          <Button title="Sign in with Microsoft" callback={skipSignIn} loading={loading}  />
           <p className='mt-4 ml-8 text-gray-300'>For the best experience, use your</p>
           <p className='ml-16 text-gray-300'> work or school account</p>
         </div>
